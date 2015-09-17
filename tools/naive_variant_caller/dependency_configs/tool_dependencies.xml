@@ -5,7 +5,7 @@
     <package name="pyBamParser" version="0.0.1">
         <repository name="package_pybamparser_0_0_1" owner="blankenberg" />
     </package>
-    <package name="pyBamTools" version="0.0.1">
-        <repository name="package_pybamtools_0_0_1" owner="blankenberg" />
+    <package name="pyBamTools" version="0.0.2">
+        <repository name="package_pybamtools_0_0_2" owner="blankenberg" />
     </package>
 </tool_dependency>
