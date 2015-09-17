@@ -1,0 +1,11 @@
+categories:
+- Tool Dependency Packages
+description: Contains a tool dependency definition that downloads and compiles the python pyBamTools version 0.0.1
+long_description: |
+  Contains a tool dependency definition that downloads and compiles the python pyBamTools version 0.0.1
+
+  https://bitbucket.org/dan/pybamtools
+name: package_pybamtools_0_0_1
+owner: blankenberg
+remote_repository_url: https://github.com/blankenberg/tools-blankenberg/tree/master/packages/package_pybamtools_0_0_1
+type: tool_dependency_definition

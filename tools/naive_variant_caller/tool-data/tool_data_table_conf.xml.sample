@@ -1,0 +1,7 @@
+<tables>
+    <!-- Location of SAMTools indexes and other files -->
+    <table name="sam_fa_indexes" comment_char="#">
+        <columns>line_type, value, path</columns>
+        <file path="tool-data/sam_fa_indices.loc" />
+    </table>
+</tables>
