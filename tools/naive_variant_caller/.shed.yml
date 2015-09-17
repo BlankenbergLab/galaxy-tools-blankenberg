@@ -1,0 +1,10 @@
+categories:
+  - Variant Analysis
+description: Naive Variant Caller tool
+long_description: |
+  This tool is a naive variant caller that processes aligned sequencing reads from the BAM format and produces a VCF file containing per position variant calls. This tool allows multiple BAM files to be provided as input and utilizes read group information to make calls for individual samples.
+
+  https://github.com/blankenberg/tools-blankenberg/tree/master/tools/naive_variant_caller
+name: naive_variant_caller
+owner: blankenberg
+remote_repository_url: https://github.com/blankenberg/tools-blankenberg/tree/master/tools/naive_variant_caller
