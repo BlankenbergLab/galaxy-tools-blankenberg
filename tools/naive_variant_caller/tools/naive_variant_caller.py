@@ -62,7 +62,7 @@ def main():
                     region = tuple( [ region ] + map( int, region_split ) )
             regions.append( region )
     
-    if options.regions_file: # this loop added by RSH
+    if options.regions_file:
         for regions_filename in options.regions_file:
             with open( regions_filename, 'rt' ) as f:
                 for region in f:
