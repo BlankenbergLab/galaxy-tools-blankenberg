@@ -1,58 +1,61 @@
-<tool id="naive_variant_caller" name="Naive Variant Caller" version="0.0.2">
+<tool id="naive_variant_caller" name="Naive Variant Caller" version="0.0.3">
   <description> - tabulate variable sites from BAM datasets</description>
   <requirements>
-    <requirement type="package" version="1.7.1">numpy</requirement>
-    <requirement type="package" version="0.0.1">pyBamParser</requirement>
-    <requirement type="package" version="0.0.2">pyBamTools</requirement>
+    <requirement type="package" version="0.0.3">nvc</requirement>
   </requirements>
   <stdio>
-    <exit_code range="1:" err_level="fatal" />
-    <exit_code range=":-1" err_level="fatal" />
+    <exit_code range="1:" />
+    <exit_code range=":-1" />
   </stdio>
-  <command interpreter="python">naive_variant_caller.py
+  <version_command>naive_variant_caller.py --version</version_command>
+  <command>naive_variant_caller.py
       -o "${output_vcf}"
      
      #for $input_bam in $reference_source.input_bams:
-         -b "${input_bam.input_bam}"
-         -i "${input_bam.input_bam.metadata.bam_index}"
+         -b '${input_bam.input_bam}'
+         -i '${input_bam.input_bam.metadata.bam_index}'
      #end for
      
      #if $reference_source.reference_source_selector != "history":
-         -r "${reference_source.ref_file.fields.path}"
+         -r '${reference_source.ref_file.fields.path}'
      #elif $reference_source.ref_file:
-         -r "${reference_source.ref_file}"
+         -r '${reference_source.ref_file}'
      #end if
      
      #for $region in $regions:
-         --region "${region.chromosome}:${region.start}-${region.end}"
+         --region '${region.chromosome}:${region.start}-${region.end}'
      #end for
      
+     #for $region_file in $region_files:
+         --regions_filename '${region_file.input_region}'
+         --regions_file_columns '${int($region_file.input_region.metadata.chromCol)-1},${int($region_file.input_region.metadata.startCol)-1},${int($region_file.input_region.metadata.endCol)-1}'
+     #end for
+
      ${variants_only}
      
      ${use_strand}
      
-     --ploidy "${$ploidy}"
+     --ploidy '${$ploidy}'
      
-     --min_support_depth "${min_support_depth}"
+     --min_support_depth '${min_support_depth}'
      
      #if str($min_base_quality):
-         --min_base_quality "${min_base_quality}"
+         --min_base_quality '${min_base_quality}'
      #end if
      
      #if str($min_mapping_quality):
-         --min_mapping_quality "${min_mapping_quality}"
+         --min_mapping_quality '${min_mapping_quality}'
      #end if
      
      --allow_out_of_bounds_positions
      
      #if str( $advanced_options.advanced_options_selector ) == "advanced":
          #if str( $advanced_options.coverage_dtype ) != "guess":
-             --coverage_dtype "${advanced_options.coverage_dtype}"
+             --coverage_dtype '${advanced_options.coverage_dtype}'
          #end if
          ${advanced_options.safe}
      #end if 
   </command>
-  <version_command interpreter="python">naive_variant_caller.py --version</version_command>
   <inputs>
     <conditional name="reference_source">
       <param name="reference_source_selector" type="select" label="Choose the source for the reference list">
@@ -86,6 +89,10 @@
         <param name="chromosome" type="text" value="" optional="False" label="Chromosome" />
         <param name="start" type="integer" value="" optional="True" label="Start" />
         <param name="end" type="integer" value="" optional="True" label="End" />
+    </repeat>
+
+    <repeat name="region_files" title="Restrict to regions by file" min="0" >
+        <param name="input_region" type="data" format="interval" label="Genomic Regions" />
     </repeat>
 
     <!-- TODO: enhance filtering -->
@@ -122,6 +129,23 @@
   <outputs>
     <data format="vcf" name="output_vcf" />
   </outputs>
+  <tests>
+      <test>
+          <param name="reference_source_selector" value="history" />
+          <param name="input_bam" value="fake_phiX174_reads_1.bam" ftype="bam" />
+          <param name="ref_file" value="phiX174.fasta" ftype="fasta" />
+          <param name="regions" value="0" />
+          <param name="min_support_depth" value="0" />
+          <param name="min_base_quality" value="" />
+          <param name="min_mapping_quality" value="" />
+          <param name="ploidy" value="2" />
+          <param name="variants_only" value="False" />
+          <param name="use_strand" value="False" />
+          <param name="advanced_options_selector" value="advanced" />
+          <param name="coverage_dtype" value="uint8" />
+          <output name="output_vcf" file="fake_phiX174_reads_1_test_out_1.vcf" compare="contains" />
+      </test>
+  </tests>
   <help>
 **What it does**
 
@@ -201,24 +225,6 @@ Choose the dtype to use for storing coverage information:
 
 
   </help>
-  <tests>
-      <test>
-          <param name="reference_source_selector" value="history" />
-          <param name="input_bam" value="fake_phiX174_reads_1.bam" ftype="bam" /> 
-          <param name="ref_file" value="phiX174.fasta" ftype="fasta" />
-          <param name="regions" value="0" />
-          <param name="min_support_depth" value="0" />
-          <param name="min_base_quality" value="" />
-          <param name="min_mapping_quality" value="" />
-          <param name="ploidy" value="2" />
-          <param name="variants_only" value="False" />
-          <param name="use_strand" value="False" />
-          <param name="advanced_options_selector" value="advanced" />
-          <param name="coverage_dtype" value="uint8" />
-          <output name="output_vcf" file="fake_phiX174_reads_1_test_out_1.vcf" compare="contains" />
-      </test>
-  </tests>
-
   <citations>
     <citation type="doi">10.1186/gb4161</citation>
   </citations>
