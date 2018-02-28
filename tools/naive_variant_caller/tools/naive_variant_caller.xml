@@ -87,8 +87,8 @@
 
     <repeat name="regions" title="Restrict to regions" min="0" >
         <param name="chromosome" type="text" value="" optional="False" label="Chromosome" />
-        <param name="start" type="integer" value="" optional="True" label="Start" />
-        <param name="end" type="integer" value="" optional="True" label="End" />
+        <param name="start" type="integer" value="" optional="True" label="Start" help="0-based, closed. (BED style)" />
+        <param name="end" type="integer" value="" optional="True" label="End" help="0-based, open. (BED style)" />
     </repeat>
 
     <repeat name="region_files" title="Restrict to regions by file" min="0" >
