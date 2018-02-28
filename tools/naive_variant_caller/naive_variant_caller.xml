@@ -1,4 +1,4 @@
-<tool id="naive_variant_caller" name="Naive Variant Caller" version="0.0.3">
+<tool id="naive_variant_caller" name="Naive Variant Caller (NVC)" version="0.0.3">
   <description> - tabulate variable sites from BAM datasets</description>
   <requirements>
     <requirement type="package" version="0.0.3">nvc</requirement>
@@ -147,6 +147,10 @@
       </test>
   </tests>
   <help>
+The **Naive Variant Caller** tool (NVC).
+
+------
+
 **What it does**
 
 This tool is a naive variant caller that processes aligned sequencing reads from the BAM format and produces a VCF file containing per position variant calls. This tool allows multiple BAM files to be provided as input and utilizes read group information to make calls for individual samples. 
