@@ -1,4 +1,4 @@
-This repository contains the **Naive Variant Caller** tool.
+This repository contains the **Naive Variant Caller** tool (NVC).
 
 ------
 
