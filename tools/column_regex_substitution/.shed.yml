@@ -4,6 +4,6 @@ description: Substitute columns using regex
 long_description: |
   Substitute columns using regex / regular expressions
 name: column_regex_substitution
-owner: iuc
-remote_repository_url: https://github.com/galaxyproject/tools-iuc/tree/master/tools/column_regex_substitution
+owner: blankenberg
+remote_repository_url: https://github.com/blankenberg/tools-blankenberg/tree/master/tools/column_regex_substitution
 type: unrestricted

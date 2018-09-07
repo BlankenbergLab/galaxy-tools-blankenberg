@@ -1,22 +1,25 @@
 <tool id="column_regex_substitution" name="Column substitution" version="0.0.1">
     <description>by regular expressions</description>
+    <requirements>
+        <requirement type="package" version="2.7">python</requirement>
+    </requirements>
     <stdio>
         <exit_code range="1:" />
         <exit_code range=":-1" />
     </stdio>
-    <version_command interpreter="python">column_regex_substitution.py --version</version_command>
-    <command interpreter="python"><![CDATA[
+    <version_command>python column_regex_substitution.py --version</version_command>
+    <command><![CDATA[
         #import pipes
-        column_regex_substitution.py
-        --input "${input_tabular}"
+        python '$__tool_directory__/column_regex_substitution.py'
+        --input '${input_tabular}'
         --pattern ${pipes.quote( str( $pattern ).replace('\\','\\\\').decode( 'string_escape' ) ) or '""'}
         --replacement ${ pipes.quote( str( $replacement ).replace('\\','\\\\').decode( 'string_escape' ) ) or '""' }
-        --columns "${ $columns or "" }"
-        --output "${outfile}"
+        --columns '${ $columns or "" }'
+        --output '${outfile}'
         #if $input_tabular.metadata.delimiter:
-            --delimiter ${ pipes.quote( str( $input_tabular.unsanitized.metadata.delimiter ) ) } 
+            --delimiter ${ pipes.quote( str( $input_tabular.unsanitized.metadata.delimiter ) ) }
         #end if
-        --column_offset "-1"
+        --column_offset '-1'
     ]]>
     </command>
     <inputs>
@@ -38,7 +41,7 @@
             <param name="pattern" value="^$"/>
             <param name="replacement" value="."/>
             <param name="columns" value="1"/>
-            <output name="outfile" ftype="tabular" file="column_regex_substitution_in.tabular" />
+            <output name="outfile" ftype="tabular" file="column_regex_substitution_out.tabular" />
         </test>
     </tests>
     <help><![CDATA[
