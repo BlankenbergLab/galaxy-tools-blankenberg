@@ -1,0 +1,122 @@
+<tool id="gpca" name="r-gpca" version="0.1.0">
+  <description>Guided Prinicple Component Analysis for Batch Effects</description>
+    <requirements>
+        <requirement type="package" version="1.0">r-gpca</requirement>
+        <requirement type="package" version="1.6.0">r-optparse</requirement>
+    </requirements>
+    <command detect_errors="exit_code">
+
+    <![CDATA[
+      
+      Rscript '$__tool_directory__/r-gpca.R'
+        -i '${batch}'
+        -d '${data}'
+        -n '${nperm}'
+        -c '${center}'
+        -y '${scaleY}'
+        -f '${filt}'
+        -s '${seed}'
+        -p '${html_outfile.extra_files_path}'
+        -x '${numbers_outfile}'
+        -o '${html_outfile}';
+
+    ]]></command>
+
+    <inputs>
+        <param type="data" name="batch" argument="--batch" format="tabular" label="Comes from batch input file" />
+        <param type="data" name="data"  argument="--data" format="tabular"   label="Comes from data input file" />
+        <param type="integer" name="nperm" argument="--nperm" value="1000" help="default=1000" label="Number of permutations to preform"/>
+
+        <param type="boolean" name="center" argument="--center" checked="0" truevalue="TRUE" falsevalue="FALSE" format="text" help="default=No" label="Is the data centered?"/>
+        <param type="boolean" name="scaleY" argument="--scale" checked="0" truevalue="TRUE" falsevalue="FALSE" format="text" help="default=No" label="Should Y be scaled based on number off samples in each batch?"/>
+
+        <param type="integer" name="filt" optional="true" argument="--filt"  min="1" value="" label="How many features to keep?" help="Leave blank for default(NULL)"/>
+
+        <param type="integer" name="seed" optional="true" argument="--seed"  min="1" value="" label="Seed #" help="Leave blank for default(NULL)"/>
+    </inputs>
+
+    <outputs>
+        <data name="html_outfile" format="html" label="${tool.name} on ${on_string} html"/>
+        <data name="numbers_outfile" format="tabular" label="${tool.name} on ${on_string}: numbers" />
+    </outputs>
+
+    <tests>
+      <test>
+        <param name="batch" value="batch_in_1.tabular"  />
+        <param name="data" value="data_in_1.tabular"  />
+        <param name="nperm" value="1000" />
+        <param name="center" value="FALSE" />
+        <param name="scaleY" value="FALSE" />
+        <param name="filt" value="" />
+        <param name="seed" value="123456" />
+
+
+        <output name="html_outfile" ftype="html" file="html_outfile_1/html_outfile_1.html" compare="sim_size">
+          <extra_files type="file" name="gDist.png" value="html_outfile_1/gDist.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="guided_1v2.png" value="html_outfile_1/guided_1v2.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="unguided_1v2.png" value="html_outfile_1/unguided_1v2.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="guided_comp_3.png" value="html_outfile_1/guided_comp_3.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="unguided_comp_3.png" value="html_outfile_1/unguided_comp_3.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="guided_var.png" value="html_outfile_1/guided_var.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="unguided_var.png" value="html_outfile_1/unguided_var.png" 
+            compare="sim_size"/>
+
+        </output>
+        <output name="numbers_outfile" ftype="tabular" file="numbers_outfile_1.tabular"/>
+        
+        
+
+        
+
+        </test>
+    </tests>
+    
+    <help>
+
+      <![CDATA[
+
+      **What it does**
+      Utilizes guided prinicple component analysis for detection of batch effects in high-throughput data
+
+      Arguments:
+
+      batch: a length n vector that indicates batch (group or class) for each observation.
+
+      x/data:  an nxp matrix of data where n denotes observations and p denotes the numberof features (e.g. probe, gene, SNP, etc.).
+
+      filt:  (optional) the number of features to retain after applying a variance filter. If NULL,  no  filter  is  applied. Filtering  can  significantly  reduce  the  processing time in the case of very large data sets.
+
+      nperm: the number of permutations to perform for the permutation test, default is 1000.
+
+      center:  (logical) Is your data x centered? If not, then center=FALSE and gPCA.batchdetect will center it for you.
+
+      scaleY:  (logical) Do you want to scale the Y matrix by the number of samples in each batch? If not, then center=FALSE (default), otherwise, center=TRUE.
+
+      seed:  the seed number for set.seed(). Default is NULL.
+
+      Literature:
+
+      https://cran.r-project.org/web/packages/gPCA/gPCA.pdf
+
+      https://cran.r-project.org/web/packages/gPCA/vignettes/gPCA.pdf
+      ]]>
+    </help>
+    
+  <citations>
+  <citation type="bibtex">
+@misc{r-gpca,
+  author = {Lowe, Chris},
+  year = {2018},
+  title = {r-gpca,
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  url = 
+  </citation>
+  </citations>
+</tool>

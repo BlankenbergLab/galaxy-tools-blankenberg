@@ -1,0 +1,13 @@
+owner: blankenberglab
+name: r-gpca
+homepage_url: https://cran.r-project.org/package=gPCA
+remote_repository_url: https://github.com/blankenberglab/galaxy-tools-blankenberg/tree/master/tools/r-gpca
+type: unrestricted
+auto_tool_repositories:
+  name_template: "{{ tool_id }}"
+  description_template: "{{ tool_name }} (using the gPCA R package)"
+suite:
+  name: "r-gpca"
+  description: Guided prinicple components analysis for the detection of batch effects in high-throughput data
+categories:
+  - Quality Control
