@@ -56,7 +56,7 @@ option_list = list(
     action = "store",
     default = 3,
     type = 'numeric',
-    help = "Number of principal compoents to plot"
+    help = "Number of principal components to plot"
    ),
    make_option(
     c("-p", "--path"),
