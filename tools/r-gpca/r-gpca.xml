@@ -1,5 +1,5 @@
-<tool id="gpca" name="r-gpca" version="0.1.0">
-  <description>Guided Prinicple Component Analysis for Batch Effects</description>
+<tool id="gpca" name="gPCA" version="1.0.0">
+  <description>Batch Effect Detection via Guided Principal Components Analysis</description>
     <requirements>
         <requirement type="package" version="1.0">r-gpca</requirement>
         <requirement type="package" version="1.6.0">r-optparse</requirement>
@@ -12,77 +12,65 @@
         -i '${batch}'
         -d '${data}'
         -n '${nperm}'
-        -c '${center}'
-        -y '${scaleY}'
-        -f '${filt}'
-        -s '${seed}'
+        ${center}
+        ${scaleY}
+        #if str($filt):
+            -f '${filt}'
+        #end if
+        #if str($seed):
+            -s '${seed}'
+        #end if
+        --npcs '${npcs}'
         -p '${html_outfile.extra_files_path}'
         -x '${numbers_outfile}'
         -o '${html_outfile}';
 
     ]]></command>
-
+    <version_command><![CDATA['$__tool_directory__/r-gpca.R' --version]]></version_command>
     <inputs>
-        <param type="data" name="batch" argument="--batch" format="tabular" label="Comes from batch input file" />
-        <param type="data" name="data"  argument="--data" format="tabular"   label="Comes from data input file" />
+        <param type="data" name="data"  argument="--data" format="tabular"   label="Data input file" />
+        <param type="data" name="batch" argument="--batch" format="tabular" label="Batch input file" />
         <param type="integer" name="nperm" argument="--nperm" value="1000" help="default=1000" label="Number of permutations to preform"/>
-
-        <param type="boolean" name="center" argument="--center" checked="0" truevalue="TRUE" falsevalue="FALSE" format="text" help="default=No" label="Is the data centered?"/>
-        <param type="boolean" name="scaleY" argument="--scale" checked="0" truevalue="TRUE" falsevalue="FALSE" format="text" help="default=No" label="Should Y be scaled based on number off samples in each batch?"/>
-
+        <param type="boolean" name="center" argument="--center" checked="false" truevalue="--center" falsevalue="" help="Set to true to prevent gPCA from centering" label="Is the data centered?"/>
+        <param type="boolean" name="scaleY" argument="--scaleY" checked="false" truevalue="--scaleY" falsevalue="" help="default=No" label="Should Y be scaled based on number of samples in each batch?"/>
         <param type="integer" name="filt" optional="true" argument="--filt"  min="1" value="" label="How many features to keep?" help="Leave blank for default(NULL)"/>
-
         <param type="integer" name="seed" optional="true" argument="--seed"  min="1" value="" label="Seed #" help="Leave blank for default(NULL)"/>
+        <param type="integer" name="npcs" optional="false" argument="--npcs"  min="3" value="3" label="Principal Components to plot" help="Number of principal components to plot"/>
     </inputs>
 
     <outputs>
         <data name="html_outfile" format="html" label="${tool.name} on ${on_string} html"/>
-        <data name="numbers_outfile" format="tabular" label="${tool.name} on ${on_string}: numbers" />
+        <data name="numbers_outfile" format="tabular" label="${tool.name} on ${on_string}: values" />
     </outputs>
 
     <tests>
       <test>
-        <param name="batch" value="batch_in_1.tabular"  />
-        <param name="data" value="data_in_1.tabular"  />
+        <param name="batch" ftype="tabular" value="batch_in_1.tabular"  />
+        <param name="data" ftype="tabular" value="data_in_1.tabular"  />
         <param name="nperm" value="1000" />
-        <param name="center" value="FALSE" />
-        <param name="scaleY" value="FALSE" />
+        <param name="center" value="False" />
+        <param name="scaleY" value="False" />
         <param name="filt" value="" />
+        <param name="npcs" value="3" />
         <param name="seed" value="123456" />
-
-
-        <output name="html_outfile" ftype="html" file="html_outfile_1/html_outfile_1.html" compare="sim_size">
-          <extra_files type="file" name="gDist.png" value="html_outfile_1/gDist.png" 
-            compare="sim_size"/>
-          <extra_files type="file" name="guided_1v2.png" value="html_outfile_1/guided_1v2.png" 
-            compare="sim_size"/>
-          <extra_files type="file" name="unguided_1v2.png" value="html_outfile_1/unguided_1v2.png" 
-            compare="sim_size"/>
-          <extra_files type="file" name="guided_comp_3.png" value="html_outfile_1/guided_comp_3.png" 
-            compare="sim_size"/>
-          <extra_files type="file" name="unguided_comp_3.png" value="html_outfile_1/unguided_comp_3.png" 
-            compare="sim_size"/>
-          <extra_files type="file" name="guided_var.png" value="html_outfile_1/guided_var.png" 
-            compare="sim_size"/>
-          <extra_files type="file" name="unguided_var.png" value="html_outfile_1/unguided_var.png" 
-            compare="sim_size"/>
-
+        <output name="html_outfile" ftype="html" file="html_outfile_1/html_outfile_1.html">
+          <extra_files type="file" name="gDist.png" value="html_outfile_1/gDist.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_1v2.png" value="html_outfile_1/guided_1v2.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_1v2.png" value="html_outfile_1/unguided_1v2.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_npcs.png" value="html_outfile_1/guided_npcs.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_npcs.png" value="html_outfile_1/unguided_npcs.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_var.png" value="html_outfile_1/guided_var.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_var.png" value="html_outfile_1/unguided_var.png" compare="sim_size"/>
         </output>
         <output name="numbers_outfile" ftype="tabular" file="numbers_outfile_1.tabular"/>
-        
-        
-
-        
-
-        </test>
+      </test>
     </tests>
     
     <help>
-
       <![CDATA[
 
       **What it does**
-      Utilizes guided prinicple component analysis for detection of batch effects in high-throughput data
+      Utilizes guided principal components analysis for the detection of batch effects in high-throughput data.
 
       Arguments:
 
@@ -109,14 +97,12 @@
     </help>
     
   <citations>
-  <citation type="bibtex">
-@misc{r-gpca,
-  author = {Lowe, Chris},
-  year = {2018},
-  title = {r-gpca,
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  url = 
-  </citation>
+    <citation type="doi">10.1093/bioinformatics/btt480</citation>
+    <citation type="bibtex">@unpublished{gpca:2018,
+      title  = "gPCA Galaxy Tool",
+      author = "Chris Lowe, Daniel Blankenberg",
+      url    = "https://github.com/BlankenbergLab/galaxy-tools-blankenberg/tree/master/tools/r-gpca",
+      year   = "2018 (accessed November 16, 2018)"}
+    </citation>
   </citations>
 </tool>
