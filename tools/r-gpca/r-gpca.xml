@@ -35,7 +35,7 @@
         <param type="boolean" name="scaleY" argument="--scaleY" checked="false" truevalue="--scaleY" falsevalue="" help="default=No" label="Should Y be scaled based on number of samples in each batch?"/>
         <param type="integer" name="filt" optional="true" argument="--filt"  min="1" value="" label="How many features to keep?" help="Leave blank for default(NULL)"/>
         <param type="integer" name="seed" optional="true" argument="--seed"  min="1" value="" label="Seed #" help="Leave blank for default(NULL)"/>
-        <param type="integer" name="npcs" optional="false" argument="--npcs"  min="3" value="3" label="Principal Components to plot" help="Number of principal components to plot"/>
+        <param type="integer" name="npcs" optional="false" argument="--npcs"  min="3" value="3" label="Principal Components to calculate" help="Number of principal components to calcualte"/>
     </inputs>
 
     <outputs>
@@ -54,15 +54,42 @@
         <param name="npcs" value="3" />
         <param name="seed" value="123456" />
         <output name="html_outfile" ftype="html" file="html_outfile_1/html_outfile_1.html">
-          <extra_files type="file" name="gDist.png" value="html_outfile_1/gDist.png" compare="sim_size"/>
-          <extra_files type="file" name="guided_1v2.png" value="html_outfile_1/guided_1v2.png" compare="sim_size"/>
-          <extra_files type="file" name="unguided_1v2.png" value="html_outfile_1/unguided_1v2.png" compare="sim_size"/>
-          <extra_files type="file" name="guided_npcs.png" value="html_outfile_1/guided_npcs.png" compare="sim_size"/>
-          <extra_files type="file" name="unguided_npcs.png" value="html_outfile_1/unguided_npcs.png" compare="sim_size"/>
-          <extra_files type="file" name="guided_var.png" value="html_outfile_1/guided_var.png" compare="sim_size"/>
-          <extra_files type="file" name="unguided_var.png" value="html_outfile_1/unguided_var.png" compare="sim_size"/>
+          <extra_files type="file" name="gDist_1.png" value="html_outfile_1/gDist_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_1v2_1.png" value="html_outfile_1/guided_1v2_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_1v2_1.png" value="html_outfile_1/unguided_1v2_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_npcs_1.png" value="html_outfile_1/guided_npcs_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_npcs_1.png" value="html_outfile_1/unguided_npcs_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_var_1.png" value="html_outfile_1/guided_var_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_var_1.png" value="html_outfile_1/unguided_var_1.png" compare="sim_size"/>
         </output>
-        <output name="numbers_outfile" ftype="tabular" file="numbers_outfile_1.tabular"/>
+        <output name="numbers_outfile_1.tabular" ftype="tabular" file="numbers_outfile_1.tabular"/>
+      </test>
+      <test>
+        <param name="batch" ftype="tabular" value="batch_in_multiple_1.tabular"  />
+        <param name="data" ftype="tabular" value="data_in_1.tabular"  />
+        <param name="nperm" value="1000" />
+        <param name="center" value="False" />
+        <param name="scaleY" value="False" />
+        <param name="filt" value="" />
+        <param name="npcs" value="3" />
+        <param name="seed" value="123456" />
+        <output name="html_outfile" ftype="html" file="html_outfile_2/html_outfile_2.html">
+          <extra_files type="file" name="gDist_1.png" value="html_outfile_2/gDist_1.png" compare="sim_size"/>
+          <extra_files type="file" name="gDist_2.png" value="html_outfile_2/gDist_2.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_1v2_1.png" value="html_outfile_2/guided_1v2_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_1v2_2.png" value="html_outfile_2/guided_1v2_2.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_1v2_1.png" value="html_outfile_2/unguided_1v2_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_1v2_2.png" value="html_outfile_2/unguided_1v2_2.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_npcs_1.png" value="html_outfile_2/guided_npcs_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_npcs_2.png" value="html_outfile_2/guided_npcs_2.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_npcs_1.png" value="html_outfile_2/unguided_npcs_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_npcs_2.png" value="html_outfile_2/unguided_npcs_2.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_var_1.png" value="html_outfile_2/guided_var_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_var_2.png" value="html_outfile_2/guided_var_2.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_var_1.png" value="html_outfile_2/unguided_var_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_var_2.png" value="html_outfile_2/unguided_var_2.png" compare="sim_size"/>
+        </output>
+        <output name="numbers_outfile_2.tabular" ftype="tabular" file="numbers_outfile_2.tabular"/>
       </test>
     </tests>
     
@@ -88,11 +115,20 @@
 
       seed:  the seed number for set.seed(). Default is NULL.
 
-      Literature:
+      npcs: number of principal components to calculate
+
+      **Literature**
 
       https://cran.r-project.org/web/packages/gPCA/gPCA.pdf
 
       https://cran.r-project.org/web/packages/gPCA/vignettes/gPCA.pdf
+      
+      **Input File Help**
+
+      Batch: The batch file must be a tab delimited file.  It will be read as a numeric vector, consisting of as many different batches as you like.  The test data file batch_in_multiple_1.tabular shows the correct format.  The length of batch must conform to the data matrix or an error will occur.
+
+      Data: The data file must be a tab delimited file.  It will be read in as a matrix.  The test data file data_in_1.tabular shows the correct format.  If you are receving errors about nonconformed matrices in your matrix you might need to transpose your matrix before using it in the tool.
+
       ]]>
     </help>
     

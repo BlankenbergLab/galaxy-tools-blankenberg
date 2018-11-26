@@ -6,4 +6,4 @@ type: unrestricted
 description: Batch Effect Detection via Guided Principal Components Analysis
 long_description: Batch Effect Detection via Guided Principal Components Analysis using R package gPCA https://cran.r-project.org/package=gPCA
 categories:
-  - Quality Control
+  - Statistics
