@@ -111,7 +111,7 @@ data<-t(as.matrix(read.delim(opt$data, row.names=1, header=TRUE, sep="\t")))
 batch<-as.matrix(read.delim(opt$batch, header=TRUE, row.names=1, sep="\t"))
 
 write('<html><body><a name="top"></a>',file = opt$html_outfile, append=TRUE)
-write('#Batch\tDelta\tP-value\tCumulative Variance\n',file = opt$numbers_outfile, append=TRUE)
+write('#Batch\tDelta\tP-value\tCumulative Variance',file = opt$numbers_outfile, append=TRUE)
 write('<div align="left><ul id =""><p><b>Table of Contents</b></p></ul></div>', file=opt$html_outfile, append=TRUE)
 
 for (row in 1:nrow(batch)) {
@@ -125,7 +125,6 @@ out<-gPCA.batchdetect(x=data, batch=batch1, center=opt$center, scaleY=opt$scaleY
 out$varPCg1<-((out$varPCg1-out$varPCu1)/out$varPCg1)*100
 
 write(paste(row.names(batch)[row],out$delta,out$p.val,out$varPCg1,sep="\t"),file = opt$numbers_outfile, append=TRUE)
-write('\n',file = opt$numbers_outfile, append=TRUE)
 
 # General Distribution 
 par(mai=c(0.8,0.8,0.1,0.1),cex=0.8)
