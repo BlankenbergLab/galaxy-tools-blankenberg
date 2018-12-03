@@ -1,0 +1,149 @@
+<tool id="gpca" name="gPCA" version="1.0.0">
+  <description>Batch Effect Detection via Guided Principal Components Analysis</description>
+    <requirements>
+        <requirement type="package" version="1.0">r-gpca</requirement>
+        <requirement type="package" version="1.6.0">r-optparse</requirement>
+    </requirements>
+    <version_command><![CDATA[Rscript '$__tool_directory__/r-gpca.R' --version]]></version_command>
+    <command detect_errors="exit_code">
+    <![CDATA[
+      
+      Rscript '$__tool_directory__/r-gpca.R'
+        -i '${batch}'
+        -d '${data}'
+        -n '${nperm}'
+        ${center}
+        ${scaleY}
+        #if str($filt):
+            -f '${filt}'
+        #end if
+        #if str($seed):
+            -s '${seed}'
+        #end if
+        --npcs '${npcs}'
+        -p '${html_outfile.extra_files_path}'
+        -x '${numbers_outfile}'
+        -o '${html_outfile}';
+
+    ]]></command>
+    
+    <inputs>
+        <param type="data" name="data"  argument="--data" format="tabular"   label="Data input file" />
+        <param type="data" name="batch" argument="--batch" format="tabular" label="Batch input file" />
+        <param type="integer" name="nperm" argument="--nperm" value="1000" help="default=1000" label="Number of permutations to preform"/>
+        <param type="boolean" name="center" argument="--center" checked="false" truevalue="--center" falsevalue="" help="Set to true to prevent gPCA from centering" label="Is the data centered?"/>
+        <param type="boolean" name="scaleY" argument="--scaleY" checked="false" truevalue="--scaleY" falsevalue="" help="default=No" label="Should Y be scaled based on number of samples in each batch?"/>
+        <param type="integer" name="filt" optional="true" argument="--filt"  min="1" value="" label="How many features to keep?" help="Leave blank for default(NULL)"/>
+        <param type="integer" name="seed" optional="true" argument="--seed"  min="1" value="" label="Seed #" help="Leave blank for default(NULL)"/>
+        <param type="integer" name="npcs" optional="false" argument="--npcs"  min="3" value="3" label="Principal Components to calculate" help="Number of principal components to calcualte"/>
+    </inputs>
+
+    <outputs>
+        <data name="html_outfile" format="html" label="${tool.name} on ${on_string} html"/>
+        <data name="numbers_outfile" format="tabular" label="${tool.name} on ${on_string}: values" />
+    </outputs>
+
+    <tests>
+      <test>
+        <param name="batch" ftype="tabular" value="batch_in_1.tabular"  />
+        <param name="data" ftype="tabular" value="data_in_1.tabular"  />
+        <param name="nperm" value="1000" />
+        <param name="center" value="False" />
+        <param name="scaleY" value="False" />
+        <param name="filt" value="" />
+        <param name="npcs" value="3" />
+        <param name="seed" value="123456" />
+        <output name="html_outfile" ftype="html" file="html_outfile_1/html_outfile_1.html">
+          <extra_files type="file" name="gDist_1.png" value="html_outfile_1/gDist_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_1v2_1.png" value="html_outfile_1/guided_1v2_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_1v2_1.png" value="html_outfile_1/unguided_1v2_1.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="guided_npcs_1.png" value="html_outfile_1/guided_npcs_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_npcs_1.png" value="html_outfile_1/unguided_npcs_1.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="guided_var_1.png" value="html_outfile_1/guided_var_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_var_1.png" value="html_outfile_1/unguided_var_1.png" 
+            compare="sim_size"/>
+        </output>
+        <output name="numbers_outfile" ftype="tabular" file="numbers_outfile_1.tabular"/>
+      </test>
+      <test>
+        <param name="batch" ftype="tabular" value="batch_in_multiple_1.tabular"  />
+        <param name="data" ftype="tabular" value="data_in_1.tabular"  />
+        <param name="nperm" value="1000" />
+        <param name="center" value="False" />
+        <param name="scaleY" value="False" />
+        <param name="filt" value="" />
+        <param name="npcs" value="3" />
+        <param name="seed" value="123456" />
+        <output name="html_outfile" ftype="html" file="html_outfile_2/html_outfile_2.html">
+          <extra_files type="file" name="gDist_1.png" value="html_outfile_2/gDist_1.png" compare="sim_size"/>
+          <extra_files type="file" name="gDist_2.png" value="html_outfile_2/gDist_2.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_1v2_1.png" value="html_outfile_2/guided_1v2_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_1v2_2.png" value="html_outfile_2/guided_1v2_2.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_1v2_1.png" value="html_outfile_2/unguided_1v2_1.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="unguided_1v2_2.png" value="html_outfile_2/unguided_1v2_2.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="guided_npcs_1.png" value="html_outfile_2/guided_npcs_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_npcs_2.png" value="html_outfile_2/guided_npcs_2.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_npcs_1.png" value="html_outfile_2/unguided_npcs_1.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_npcs_2.png" value="html_outfile_2/unguided_npcs_2.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_var_1.png" value="html_outfile_2/guided_var_1.png" compare="sim_size"/>
+          <extra_files type="file" name="guided_var_2.png" value="html_outfile_2/guided_var_2.png" compare="sim_size"/>
+          <extra_files type="file" name="unguided_var_1.png" value="html_outfile_2/unguided_var_1.png" 
+            compare="sim_size"/>
+          <extra_files type="file" name="unguided_var_2.png" value="html_outfile_2/unguided_var_2.png" 
+            compare="sim_size"/>
+        </output>
+        <output name="numbers_outfile" ftype="tabular" file="numbers_outfile_2.tabular"/>
+      </test>
+    </tests>
+    
+    <help>
+      <![CDATA[
+
+      **What it does**
+      Utilizes guided principal components analysis for the detection of batch effects in high-throughput data.
+
+      Arguments:
+
+      batch: a length n vector that indicates batch (group or class) for each observation.
+
+      x/data:  an nxp matrix of data where n denotes observations and p denotes the numberof features (e.g. probe, gene, SNP, etc.).
+
+      filt:  (optional) the number of features to retain after applying a variance filter. If NULL,  no  filter  is  applied. Filtering  can  significantly  reduce  the  processing time in the case of very large data sets.
+
+      nperm: the number of permutations to perform for the permutation test, default is 1000.
+
+      center:  (logical) Is your data x centered? If not, then center=FALSE and gPCA.batchdetect will center it for you.
+
+      scaleY:  (logical) Do you want to scale the Y matrix by the number of samples in each batch? If not, then center=FALSE (default), otherwise, center=TRUE.
+
+      seed:  the seed number for set.seed(). Default is NULL.
+
+      npcs: number of principal components to calculate
+
+      **Literature**
+      https://cran.r-project.org/web/packages/gPCA/gPCA.pdf
+
+      https://cran.r-project.org/web/packages/gPCA/vignettes/gPCA.pdf
+      
+      **Input File Help**
+      Batch: The batch file must be a tab delimited file.  It will be read as a numeric vector, consisting of as many different batches as you like.  The test data file batch_in_multiple_1.tabular shows the correct format.  The length of batch must conform to the data matrix or an error will occur.
+
+      Data: The data file must be a tab delimited file.  It will be read in as a matrix.  The test data file data_in_1.tabular shows the correct format.  If you are receving errors about nonconformed matrices in your matrix you might need to transpose your matrix before using it in the tool.
+
+      ]]>
+    </help>
+    
+  <citations>
+    <citation type="doi">10.1093/bioinformatics/btt480</citation>
+    <citation type="bibtex">@unpublished{gpca:2018,
+      title  = "gPCA Galaxy Tool",
+      author = "Chris Lowe, Daniel Blankenberg",
+      url    = "https://github.com/BlankenbergLab/galaxy-tools-blankenberg/tree/master/tools/r-gpca",
+      year   = "2018 (accessed November 16, 2018)"}
+    </citation>
+  </citations>
+</tool>

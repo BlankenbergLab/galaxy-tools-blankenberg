@@ -1,0 +1,9 @@
+owner: blankenberglab
+name: gpca
+homepage_url: https://cran.r-project.org/package=gPCA
+remote_repository_url: https://github.com/blankenberglab/galaxy-tools-blankenberg/tree/master/tools/r-gpca
+type: unrestricted
+description: Batch Effect Detection via Guided Principal Components Analysis
+long_description: Batch Effect Detection via Guided Principal Components Analysis using R package gPCA https://cran.r-project.org/package=gPCA
+categories:
+  - Statistics
