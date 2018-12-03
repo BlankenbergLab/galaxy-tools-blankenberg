@@ -4,7 +4,7 @@
         <requirement type="package" version="1.0">r-gpca</requirement>
         <requirement type="package" version="1.6.0">r-optparse</requirement>
     </requirements>
-    <version_command><![CDATA['$__tool_directory__/r-gpca.R' --version]]></version_command>
+    <version_command><![CDATA[Rscript '$__tool_directory__/r-gpca.R' --version]]></version_command>
     <command detect_errors="exit_code">
     <![CDATA[
       
@@ -65,7 +65,7 @@
           <extra_files type="file" name="unguided_var_1.png" value="html_outfile_1/unguided_var_1.png" 
             compare="sim_size"/>
         </output>
-        <output name="numbers_outfile_1.tabular" ftype="tabular" file="numbers_outfile_1.tabular"/>
+        <output name="numbers_outfile" ftype="tabular" file="numbers_outfile_1.tabular"/>
       </test>
       <test>
         <param name="batch" ftype="tabular" value="batch_in_multiple_1.tabular"  />
@@ -96,7 +96,7 @@
           <extra_files type="file" name="unguided_var_2.png" value="html_outfile_2/unguided_var_2.png" 
             compare="sim_size"/>
         </output>
-        <output name="numbers_outfile_2.tabular" ftype="tabular" file="numbers_outfile_2.tabular"/>
+        <output name="numbers_outfile" ftype="tabular" file="numbers_outfile_2.tabular"/>
       </test>
     </tests>
     
