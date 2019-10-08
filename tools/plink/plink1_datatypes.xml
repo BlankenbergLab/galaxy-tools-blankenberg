@@ -1,3 +1,6 @@
+<?xml version="1.0"?>
+<datatypes>
+<registration>
 <datatype extension="plink.adjusted" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
 <datatype extension="plink.allele.no.snp" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
 <datatype extension="plink.annot" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
@@ -106,3 +109,5 @@
 <datatype extension="plink.twolocus" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
 <datatype extension="plink.var.ranges" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
 <datatype extension="plink.log" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+</registration>
+</datatypes>
