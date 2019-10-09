@@ -1,4 +1,4 @@
-<tool id="blankenberg_plink" name="PLINK" version="1.90b4" tool_type="default" profile="19.05">
+<tool id="blankenberg_plink" name="PLINK" version="1.90b4">
     <requirements>
         <requirement type="package" version="1.90b4">plink</requirement>
     </requirements>
@@ -11851,7 +11851,7 @@ For further documentation and support, consult the main webpage
     ]]></help>
     <citations>
         <citation type="doi">10.1186/s13742-015-0047-8</citation>
-        <citation type="bibtex">@ARTICLE{Blankenberg19-anvio,
+        <citation type="bibtex">@ARTICLE{Blankenberg19-plink,
    author = {Daniel Blankenberg, et al},
    title = {In preparation..},
    }</citation>

@@ -1,4 +1,4 @@
-<tool id="blankenberg_plink2" name="PLINK 2" version="2.00aLM" tool_type="default" profile="19.05">
+<tool id="blankenberg_plink2" name="PLINK 2" version="2.00aLM">
     <requirements>
         <requirement type="package" version="2.00aLM">plink2</requirement>
     </requirements>
@@ -6183,7 +6183,7 @@ GigaScience, 4.
     ]]></help>
     <citations>
         <citation type="doi">10.1186/s13742-015-0047-8</citation>
-        <citation type="bibtex">@ARTICLE{Blankenberg19-anvio,
+        <citation type="bibtex">@ARTICLE{Blankenberg19-plink,
    author = {Daniel Blankenberg, et al},
    title = {In preparation..},
    }</citation>
