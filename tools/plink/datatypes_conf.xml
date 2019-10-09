@@ -1,113 +1,113 @@
 <?xml version="1.0"?>
 <datatypes>
-<registration>
-<datatype extension="plink.adjusted" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.allele.no.snp" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.annot" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.assoc" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.assoc.dosage" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.assoc.fisher" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.assoc.linear" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.assoc.logistic" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.auto.R" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.beagle.dat" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.bed" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
-<datatype extension="plink.bed.vmaj" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.bim" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
-<datatype extension="plink.clst" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.cmh" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.cmh2" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.cnv.overlap" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.cnv.summary" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.cov" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.debug.R" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.dfam" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.diff" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.dist" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.dupvar" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.eigenval" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.fam" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
-<datatype extension="plink.frq" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.frq.cc" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.frq.count" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.frq.strat" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.frqx" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.fst" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.gen" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.genome" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.gplink" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.grm" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.grm.N.bin" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
-<datatype extension="plink.grm.bin" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
-<datatype extension="plink.grm.id" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.het" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.hh" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.hom" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.hom.indiv" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.hom.summary" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.homog" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.hwe" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.ibc" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.imiss" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.indel" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.info" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.irem" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.lasso" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.ld" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.ldset" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.lgen" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.list" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.lmiss" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.map" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.mdist" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.mdist.missing" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.mds" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.mds.eigvals" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.meta" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.mibs" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.missing" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.missing.hap" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.missnp" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.model" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.mperm" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.nearest" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.nopred" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.nosex" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.occur.dosage" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.out.dosage" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.ped" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.perm" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.pphe" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.prob" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.profile" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.prune.in" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.prune.out" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.qassoc" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.qassoc.gxe" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.qassoc.means" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.qfam" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.range.report" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.raw" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.recode.phase.inp" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.recode.strct_in" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.ref" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.rel" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.rel.id" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.rlist" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.sample" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.set" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.set.table" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.sexcheck" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.simfreq" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.skip.3allele" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.snplist" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.tdt" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.tdt.poo" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.tfam" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.tped" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.traw" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.twolocus" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.var.ranges" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-<datatype extension="plink.log" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
-</registration>
+  <registration>
+    <datatype extension="plink.adjusted" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.allele.no.snp" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.annot" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.assoc" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.assoc.dosage" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.assoc.fisher" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.assoc.linear" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.assoc.logistic" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.auto.R" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.beagle.dat" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.bed" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
+    <datatype extension="plink.bed.vmaj" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.bim" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
+    <datatype extension="plink.clst" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.cmh" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.cmh2" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.cnv.overlap" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.cnv.summary" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.cov" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.debug.R" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.dfam" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.diff" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.dist" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.dupvar" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.eigenval" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.fam" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
+    <datatype extension="plink.frq" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.frq.cc" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.frq.count" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.frq.strat" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.frqx" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.fst" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.gen" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.genome" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.gplink" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.grm" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.grm.N.bin" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
+    <datatype extension="plink.grm.bin" type="galaxy.datatypes.binary:Binary" subclass="true" display_in_upload="true"/>
+    <datatype extension="plink.grm.id" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.het" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.hh" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.hom" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.hom.indiv" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.hom.summary" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.homog" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.hwe" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.ibc" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.imiss" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.indel" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.info" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.irem" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.lasso" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.ld" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.ldset" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.lgen" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.list" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.lmiss" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.map" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.mdist" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.mdist.missing" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.mds" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.mds.eigvals" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.meta" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.mibs" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.missing" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.missing.hap" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.missnp" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.model" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.mperm" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.nearest" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.nopred" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.nosex" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.occur.dosage" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.out.dosage" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.ped" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.perm" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.pphe" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.prob" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.profile" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.prune.in" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.prune.out" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.qassoc" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.qassoc.gxe" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.qassoc.means" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.qfam" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.range.report" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.raw" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.recode.phase.inp" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.recode.strct_in" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.ref" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.rel" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.rel.id" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.rlist" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.sample" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.set" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.set.table" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.sexcheck" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.simfreq" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.skip.3allele" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.snplist" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.tdt" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.tdt.poo" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.tfam" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.tped" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.traw" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.twolocus" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.var.ranges" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+    <datatype extension="plink.log" type="galaxy.datatypes.tabular:Tabular" subclass="true" display_in_upload="true" />
+  </registration>
 </datatypes>
