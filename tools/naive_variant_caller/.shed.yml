@@ -8,4 +8,4 @@ long_description: |
 name: naive_variant_caller
 owner: blankenberg
 homepage_url: https://github.com/blankenberg/nvc
-remote_repository_url: https://github.com/blankenberg/tools-blankenberg/tree/master/tools/naive_variant_caller
+remote_repository_url: https://github.com/BlankenbergLab/galaxy-tools-blankenberg/tree/master/tools/naive_variant_caller
