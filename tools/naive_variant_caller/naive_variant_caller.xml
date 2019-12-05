@@ -59,10 +59,25 @@
   <inputs>
     <conditional name="reference_source">
       <param name="reference_source_selector" type="select" label="Choose the source for the reference list">
-        <option value="cached">Locally cached</option>
+        <option value="cached_fasta_indexes" selected="True">Locally cached</option>
         <option value="history">History</option>
+        <option value="cached">Locally cached (deprecated source)</option>
       </param>
-      <when value="cached">
+      <when value="cached_fasta_indexes">
+        <repeat name="input_bams" title="BAM file" min="1" >
+            <param name="input_bam" type="data" format="bam" label="BAM file">
+              <validator type="unspecified_build" />
+              <validator type="dataset_metadata_in_data_table" table_name="fasta_indexes" metadata_name="dbkey" metadata_column="dbkey" message="Sequences are not currently available for the specified build." /> <!-- fixme!!! this needs to be a select -->
+            </param>
+        </repeat>
+        <param name="ref_file" type="select" label="Using reference genome" >
+          <options from_data_table="fasta_indexes">
+            <!-- <filter type="data_meta" key="dbkey" ref="input_bam" column="dbkey"/> does not yet work in a repeat...--> 
+          </options>
+          <validator type="no_options" message="A built-in reference genome is not available for the build associated with the selected input file"/>
+        </param>
+      </when>
+      <when value="cached"> <!-- deprecated, uses older samtools data table -->
         <repeat name="input_bams" title="BAM file" min="1" >
             <param name="input_bam" type="data" format="bam" label="BAM file">
               <validator type="unspecified_build" />
