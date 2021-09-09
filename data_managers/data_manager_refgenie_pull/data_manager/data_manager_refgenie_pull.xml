@@ -1,7 +1,10 @@
-<tool id="data_manager_refgenie_pull" name="refgenie asset pulling" version="0.0.1" tool_type="manage_data" profile="20.05">
+<tool id="data_manager_refgenie_pull" name="refgenie asset pulling" version="@VERSION@" tool_type="manage_data" profile="20.05">
     <description>from remote resource</description>
+    <macros>
+        <import>macros.xml</import>
+    </macros>
     <requirements>
-        <requirement type="package" version="0.9.1">refgenie</requirement>
+        <requirement type="package" version="@VERSION@">refgenie</requirement>
     </requirements>
     <code file="data_manager_refgenie_pull.py" />
     <environment_variables>
