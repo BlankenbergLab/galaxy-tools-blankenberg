@@ -60,7 +60,7 @@ Fetches a reference genome using refgenie (http://refgenie.databio.org).
 
 .. class:: warning
 
-**You must configure Galaxy to use refgenie, by setting 'refgenie_config_file' in the Galaxy config. This tool uses refgenie config file version 0.3.**
+**You must configure Galaxy to use refgenie, by setting 'refgenie_config_file' in the Galaxy config. This tool uses refgenie config file version 0.4.**
     ]]></help>
     <citations>
         <citation type="doi">10.1093/gigascience/giz149</citation>
