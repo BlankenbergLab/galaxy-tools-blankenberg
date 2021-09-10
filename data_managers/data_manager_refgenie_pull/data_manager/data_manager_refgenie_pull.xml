@@ -6,6 +6,7 @@
     <requirements>
         <requirement type="package" version="@VERSION@">refgenie</requirement>
     </requirements>
+    <version_command>refgenie --version</version_command>
     <code file="data_manager_refgenie_pull.py" />
     <environment_variables>
         <environment_variable name="API_KEY" inject="api_key" />
