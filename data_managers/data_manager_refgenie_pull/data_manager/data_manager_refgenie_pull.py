@@ -14,7 +14,10 @@ log = logging.getLogger("tools.iuc.data_managers.data_manager_refgenie_pull")
 
 
 def galaxy_code_get_refgenie_assets(refgenie_config_file):
-    rgc = refgenconf.RefGenConf(refgenie_config_file)
+    try:
+        rgc = refgenconf.RefGenConf(refgenie_config_file, writable=False, skip_read_lock=True)
+    except refgenconf.exceptions.RefgenconfError as e:
+        return[{'name': str(e), 'value': 'ERROR', 'options': [], 'selected': False}]
     rval = []
     for urlname, genomes in rgc.listr().items():
         urlname_64 = urlsafe_b64encode(bytes(urlname, 'utf8')).decode('utf8')
