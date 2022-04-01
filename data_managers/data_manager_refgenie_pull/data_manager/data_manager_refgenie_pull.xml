@@ -1,4 +1,4 @@
-<tool id="data_manager_refgenie_pull" name="refgenie asset pulling" version="@VERSION@" tool_type="manage_data" profile="20.05">
+<tool id="data_manager_refgenie_pull" name="refgenie asset pulling" version="@VERSION@+galaxy0" tool_type="manage_data" profile="20.05">
     <description>from remote resource</description>
     <macros>
         <import>macros.xml</import>
@@ -18,8 +18,12 @@
          &&
        #end for
        echo '{}' > '${out_file}'
-       #if $api_refresh:
-         && python '${__tool_directory__}/data_manager_refgenie_pull.py' -k "\$API_KEY" -u '${__galaxy_url__}' >> '${out_log}'
+       #if "refresh" in $str($api_refresh):
+         && python '${__tool_directory__}/data_manager_refgenie_pull.py' -k "\$API_KEY" -u '${__galaxy_url__}'
+         #if "graceful" in $str($api_refresh):
+           --graceful
+         #end if
+         >> '${out_log}'
        #end if
     ]]></command>
     <inputs>
@@ -27,17 +31,21 @@
             <validator type="regex" message="You must select an asset, not the remote URL or genome.">.+/.+/.+</validator>
         </param>
         <param argument="--force" name="force" type="boolean" truevalue="--force" falsevalue="" checked="False" label="Force (re-)download" />
-        <param argument="--api_refresh" name="api_refresh" type="boolean" truevalue="--api_refresh" falsevalue="" checked="True" label="Refresh Galaxy data tables using API" />
+        <param name="api_refresh" type="select" label="Refresh Galaxy data tables using API" help="Refresh gracefully will attempt to refresh, but a failure will not be fatal.">
+            <option value="refresh">Refresh</option>
+            <option value="refresh_graceful" selected="True">Refresh gracefully</option>
+            <option value="no">Do not refresh</option>
+        </param>
     </inputs>
     <outputs>
-        <data name="out_file" format="data_manager_json"/>
-        <data name="out_log" format="txt"/>
+        <data name="out_file" format="data_manager_json" label="${tool.name}: data manager json"/>
+        <data name="out_log" format="txt" label="${tool.name}: log file"/>
     </outputs>
     <tests>
         <test>
             <param name="assets" value="aHR0cDovL3JlZmdlbm9tZXMuZGF0YWJpby5vcmcvdjIvYXNzZXRz/t7/fasta:default"/>
             <param name="force" value="--force"/>
-            <param name="api_refresh" value=""/>
+            <param name="api_refresh" value="no"/>
             <output name="out_file">
                 <assert_contents>
                     <has_text text="{}"/>
@@ -57,7 +65,7 @@ Fetches a reference genome using refgenie (http://refgenie.databio.org).
 
 .. class:: infomark
 
-**Notice:** Galaxy data tables will be refreshed using API calls.
+**Notice:** Galaxy data tables will be refreshed using API calls. You must have configured Galaxy to work with refgenie, see https://galaxyproject.org/admin/refgenie/.
 
 .. class:: warning
 
